@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey_form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+       <form method="post" action=" mailto : shallykansal2003@gmail.com" enctype="multipart/form-data" onsubmit="sendEmail() ;reset(); return false";>
+    <h3>SURVEY FORM</h3>
+    <label > Name</label><input type="text"  id="name" placeholder="your name" required>
+    <label>Email</label><input type="email"  id="email" placeholder="enter your email " required>
+    <label > Phone No</label> <input type="text" id="phone" placeholder="phone no" required>
+    <label > Date of birth</label> <input type="date"  id="dob" placeholder=" enter your date of birth" required>
+        <div class="radiobtns">
+            <p>Check the languages you are most proficient in.</p>
+            <input name="fav_lang" type="radio" id="html" value="HTML">
+            <label for="html">HTML</label><br>
+            <input name="fav_lang" type="radio" id="css"  value="CSS">
+            <label for="css">CSS</label><br>
+            <input name="fav_lang" type="radio" id="javascript"  value="JavaScript">
+            <label for="javascript">JavaScript</label>
+      
+        </div>
+        <div class="radiobtns">
+            <p>Select your course year</p>
+            <input name="year" type="radio" id="year1" value="year1">
+            <label for="year1">1st</label><br>
+            <input name="year" type="radio" id="year2" value="year2">
+            <label for="year2">2nd</label><br>
+            <input name="year" type="radio" id="year3" value="year3">
+            <label for="year3">3rd</label><br>
+            <input name="year" type="radio" id="year4" value="year4">
+            <label for="year4">4th</label><br>
+            
+        </div>
+   
+
+
+    <label > Enter your message here</label>
+    <textarea  id="message" rows="4" placeholder="How can we help you"></textarea>
+    <button id=" submit">Send Data</button>
+    </form> 
+    </div>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+       function sendEmail(){
+        Email.send({
+    Host : "smtp.gmail.com",
+    Username : "shallykansal2003@gmail.com",
+    Password : "18march2003",
+    To : 'shallykansal2003@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "new contact form inquiry",
+    Body : "name:"+ document.getElementById("name").value+
+    "<br> Email :"+ document.getElementById("email").value+
+    "<br> Phone no : " +  document.getElementById("phone").value+
+    "<br> Message : " +  document.getElementById("message").value
+}).then(
+  message => alert("message sent successfully")
+);
+       }
+    </script>
+</body>
+</html>
